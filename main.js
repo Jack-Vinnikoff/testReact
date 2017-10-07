@@ -43,3 +43,4 @@ ReactDOM.render(
 );
 
 console.log('Hello Tra');
+console.log(2);
