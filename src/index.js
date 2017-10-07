@@ -9830,6 +9830,8 @@ var App = function (_React$Component) {
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('root'));
 
+console.log('Hello Tra');
+
 /***/ }),
 /* 82 */
 /***/ (function(module, exports, __webpack_require__) {
