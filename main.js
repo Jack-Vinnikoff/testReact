@@ -2,6 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //import App from './App.jsx';
 
+class Number extends React.Component {
+    render () {
+
+        return (
+            <div className="number">
+                <span className='coloRed'>{this.props.numb}</span>
+
+            </div>
+        )
+    }
+}
+
 class App extends React.Component{
     constructor(props){
         super(props)
@@ -25,13 +37,11 @@ class App extends React.Component{
         let valueSpan = this.state.val;
         return (
             <div className="box">
-                <div className="number">
-                    <span className={valueSpan>=0 && valueSpan<10?'coloRed':''}>{this.state.val}</span>
-
-            </div>
+                <Number numb={this.state.val}/>
                 <button className="btn-plus" onClick={this.btnPlus.bind(this)}>+</button>
                 <button className="btn-minus" onClick={this.btnMinus.bind(this)}>-</button>
                 <p className={valueSpan==0?'warn':'none'}>Меньше никак нельзя, прости</p>
+
             </div>
         );
     };
@@ -41,6 +51,3 @@ ReactDOM.render(
     <App />,
     document.getElementById('root')
 );
-
-console.log('Hello Tra');
-console.log(2);

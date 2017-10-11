@@ -9760,18 +9760,46 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 //import App from './App.jsx';
 
-var App = function (_React$Component) {
-    _inherits(App, _React$Component);
+var Number = function (_React$Component) {
+    _inherits(Number, _React$Component);
+
+    function Number() {
+        _classCallCheck(this, Number);
+
+        return _possibleConstructorReturn(this, (Number.__proto__ || Object.getPrototypeOf(Number)).apply(this, arguments));
+    }
+
+    _createClass(Number, [{
+        key: 'render',
+        value: function render() {
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'number' },
+                _react2.default.createElement(
+                    'span',
+                    { className: 'coloRed' },
+                    this.props.numb
+                )
+            );
+        }
+    }]);
+
+    return Number;
+}(_react2.default.Component);
+
+var App = function (_React$Component2) {
+    _inherits(App, _React$Component2);
 
     function App(props) {
         _classCallCheck(this, App);
 
-        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+        var _this2 = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
-        _this.state = {
+        _this2.state = {
             val: 1
         };
-        return _this;
+        return _this2;
     }
 
     _createClass(App, [{
@@ -9795,15 +9823,7 @@ var App = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 { className: 'box' },
-                _react2.default.createElement(
-                    'div',
-                    { className: 'number' },
-                    _react2.default.createElement(
-                        'span',
-                        { className: valueSpan >= 0 && valueSpan < 10 ? 'coloRed' : '' },
-                        this.state.val
-                    )
-                ),
+                _react2.default.createElement(Number, { numb: this.state.val }),
                 _react2.default.createElement(
                     'button',
                     { className: 'btn-plus', onClick: this.btnPlus.bind(this) },
@@ -9829,8 +9849,6 @@ var App = function (_React$Component) {
 ;
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('root'));
-
-console.log('Hello Tra');
 
 /***/ }),
 /* 82 */
