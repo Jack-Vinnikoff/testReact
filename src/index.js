@@ -9770,15 +9770,15 @@ var Number = function (_React$Component) {
     }
 
     _createClass(Number, [{
-        key: 'render',
+        key: "render",
         value: function render() {
 
             return _react2.default.createElement(
-                'div',
-                { className: 'number' },
+                "div",
+                { className: "number" },
                 _react2.default.createElement(
-                    'span',
-                    { className: 'coloRed' },
+                    "span",
+                    { className: "coloRed" },
                     this.props.numb
                 )
             );
@@ -9803,43 +9803,43 @@ var App = function (_React$Component2) {
     }
 
     _createClass(App, [{
-        key: 'operation',
+        key: "operation",
         value: function operation(oper) {
             var valueSpan = this.state.val;
             this.setState({ val: valueSpan + oper });
         }
     }, {
-        key: 'btnReset',
+        key: "btnReset",
         value: function btnReset() {
             this.setState({ val: 1 });
         }
     }, {
-        key: 'render',
+        key: "render",
         value: function render() {
             var valueSpan = this.state.val;
             return _react2.default.createElement(
-                'div',
-                { className: 'box' },
+                "div",
+                { className: "box" },
                 _react2.default.createElement(Number, { numb: this.state.val }),
                 _react2.default.createElement(
-                    'button',
-                    { className: 'btn-plus', onClick: this.operation.bind(this, +1) },
-                    '+'
+                    "button",
+                    { className: "btn-plus", onClick: this.operation.bind(this, +1) },
+                    "+"
                 ),
                 _react2.default.createElement(
-                    'button',
+                    "button",
                     { disabled: valueSpan <= 0 ? 'disabled' : '', className: valueSpan > 0 ? 'btn-minus' : 'block', onClick: this.operation.bind(this, -1) },
-                    '-'
+                    "-"
                 ),
                 _react2.default.createElement(
-                    'button',
-                    { className: 'btnReset', onClick: this.btnReset.bind(this) },
-                    'Reset'
+                    "button",
+                    { className: "btnReset", onClick: this.btnReset.bind(this) },
+                    "Reset"
                 ),
                 _react2.default.createElement(
-                    'p',
+                    "p",
                     { className: valueSpan == 0 ? 'warn' : 'none' },
-                    '\u041C\u0435\u043D\u044C\u0448\u0435 \u043D\u0438\u043A\u0430\u043A \u043D\u0435\u043B\u044C\u0437\u044F, \u043F\u0440\u043E\u0441\u0442\u0438'
+                    "\u041C\u0435\u043D\u044C\u0448\u0435 \u043D\u0438\u043A\u0430\u043A \u043D\u0435\u043B\u044C\u0437\u044F, \u043F\u0440\u043E\u0441\u0442\u0438"
                 )
             );
         }
