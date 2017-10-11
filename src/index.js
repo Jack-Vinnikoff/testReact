@@ -9803,18 +9803,15 @@ var App = function (_React$Component2) {
     }
 
     _createClass(App, [{
-        key: 'btnPlus',
-        value: function btnPlus() {
+        key: 'operation',
+        value: function operation(oper) {
             var valueSpan = this.state.val;
-            this.setState({ val: valueSpan + 1 });
+            this.setState({ val: valueSpan + oper });
         }
     }, {
-        key: 'btnMinus',
-        value: function btnMinus() {
-            var valueSpan = this.state.val;
-            if (valueSpan > 0) {
-                this.setState({ val: valueSpan - 1 });
-            }
+        key: 'btnReset',
+        value: function btnReset() {
+            this.setState({ val: 1 });
         }
     }, {
         key: 'render',
@@ -9826,13 +9823,18 @@ var App = function (_React$Component2) {
                 _react2.default.createElement(Number, { numb: this.state.val }),
                 _react2.default.createElement(
                     'button',
-                    { className: 'btn-plus', onClick: this.btnPlus.bind(this) },
+                    { className: 'btn-plus', onClick: this.operation.bind(this, +1) },
                     '+'
                 ),
                 _react2.default.createElement(
                     'button',
-                    { className: 'btn-minus', onClick: this.btnMinus.bind(this) },
+                    { disabled: valueSpan <= 0 ? 'disabled' : '', className: valueSpan > 0 ? 'btn-minus' : 'block', onClick: this.operation.bind(this, -1) },
                     '-'
+                ),
+                _react2.default.createElement(
+                    'button',
+                    { className: 'btnReset', onClick: this.btnReset.bind(this) },
+                    'Reset'
                 ),
                 _react2.default.createElement(
                     'p',

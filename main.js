@@ -21,16 +21,12 @@ class App extends React.Component{
             val:1
         }
     }
-    btnPlus() {
+    operation(oper) {
         let valueSpan = this.state.val;
-        this.setState({val:valueSpan+1})
-
+        this.setState({val:valueSpan+oper})
     }
-    btnMinus(){
-        let valueSpan = this.state.val;
-        if(valueSpan>0){
-            this.setState({val:valueSpan-1})
-        }
+    btnReset(){
+        this.setState({val:1})
     }
 
     render(){
@@ -38,8 +34,9 @@ class App extends React.Component{
         return (
             <div className="box">
                 <Number numb={this.state.val}/>
-                <button className="btn-plus" onClick={this.btnPlus.bind(this)}>+</button>
-                <button className="btn-minus" onClick={this.btnMinus.bind(this)}>-</button>
+                <button className="btn-plus" onClick={this.operation.bind(this,+1)}>+</button>
+                <button disabled={valueSpan<=0 ?'disabled':''} className={valueSpan>0 ?'btn-minus':'block'} onClick={this.operation.bind(this,-1)}>-</button>
+                <button className="btnReset" onClick={this.btnReset.bind(this)}>Reset</button>
                 <p className={valueSpan==0?'warn':'none'}>Меньше никак нельзя, прости</p>
 
             </div>
