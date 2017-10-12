@@ -9760,8 +9760,41 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 //import App from './App.jsx';
 
-var Number = function (_React$Component) {
-    _inherits(Number, _React$Component);
+var Buttons = function (_React$Component) {
+    _inherits(Buttons, _React$Component);
+
+    function Buttons() {
+        _classCallCheck(this, Buttons);
+
+        return _possibleConstructorReturn(this, (Buttons.__proto__ || Object.getPrototypeOf(Buttons)).apply(this, arguments));
+    }
+
+    _createClass(Buttons, [{
+        key: "render",
+        value: function render() {
+            console.log(this.props.numb);
+            return _react2.default.createElement(
+                "div",
+                null,
+                _react2.default.createElement(
+                    "button",
+                    { className: "btn-plus", onClick: this.props.plus },
+                    "+"
+                ),
+                _react2.default.createElement(
+                    "button",
+                    { disabled: this.props.numb <= 0 ? 'disabled' : '', className: this.props.numb > 0 ? 'btn-minus' : 'block', onClick: this.props.minus },
+                    "-"
+                )
+            );
+        }
+    }]);
+
+    return Buttons;
+}(_react2.default.Component);
+
+var Number = function (_React$Component2) {
+    _inherits(Number, _React$Component2);
 
     function Number() {
         _classCallCheck(this, Number);
@@ -9788,18 +9821,18 @@ var Number = function (_React$Component) {
     return Number;
 }(_react2.default.Component);
 
-var App = function (_React$Component2) {
-    _inherits(App, _React$Component2);
+var App = function (_React$Component3) {
+    _inherits(App, _React$Component3);
 
     function App(props) {
         _classCallCheck(this, App);
 
-        var _this2 = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+        var _this3 = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
-        _this2.state = {
+        _this3.state = {
             val: 1
         };
-        return _this2;
+        return _this3;
     }
 
     _createClass(App, [{
@@ -9821,16 +9854,7 @@ var App = function (_React$Component2) {
                 "div",
                 { className: "box" },
                 _react2.default.createElement(Number, { numb: this.state.val }),
-                _react2.default.createElement(
-                    "button",
-                    { className: "btn-plus", onClick: this.operation.bind(this, +1) },
-                    "+"
-                ),
-                _react2.default.createElement(
-                    "button",
-                    { disabled: valueSpan <= 0 ? 'disabled' : '', className: valueSpan > 0 ? 'btn-minus' : 'block', onClick: this.operation.bind(this, -1) },
-                    "-"
-                ),
+                _react2.default.createElement(Buttons, { plus: this.operation.bind(this, 1), minus: this.operation.bind(this, -1), numb: this.state.val }),
                 _react2.default.createElement(
                     "button",
                     { className: "btnReset", onClick: this.btnReset.bind(this) },

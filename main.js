@@ -2,6 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom";
 //import App from './App.jsx';
 
+class Buttons extends React.Component {
+    render () {
+        console.log(this.props.numb);
+        return (
+            <div>
+                <button className="btn-plus" onClick={this.props.plus}>+</button>
+                <button disabled={this.props.numb<=0 ?'disabled':''} className={this.props.numb>0 ?'btn-minus':'block'} onClick={this.props.minus}>-</button>
+
+            </div>
+        )
+    }
+}
+
 class Number extends React.Component {
     render () {
 
@@ -34,8 +47,8 @@ class App extends React.Component{
         return (
             <div className="box">
                 <Number numb={this.state.val}/>
-                <button className="btn-plus" onClick={this.operation.bind(this,+1)}>+</button>
-                <button disabled={valueSpan<=0 ?'disabled':''} className={valueSpan>0 ?'btn-minus':'block'} onClick={this.operation.bind(this,-1)}>-</button>
+                <Buttons plus={this.operation.bind(this,1)} minus={this.operation.bind(this,-1)} numb={this.state.val}   />
+
                 <button className="btnReset" onClick={this.btnReset.bind(this)}>Reset</button>
                 <p className={valueSpan==0?'warn':'none'}>Меньше никак нельзя, прости</p>
 
