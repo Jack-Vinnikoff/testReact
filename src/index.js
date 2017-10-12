@@ -9853,8 +9853,8 @@ var App = function (_React$Component3) {
             return _react2.default.createElement(
                 "div",
                 { className: "box" },
-                _react2.default.createElement(Number, { numb: this.state.val }),
-                _react2.default.createElement(Buttons, { plus: this.operation.bind(this, 1), minus: this.operation.bind(this, -1), numb: this.state.val }),
+                _react2.default.createElement(Number, { numb: valueSpan }),
+                _react2.default.createElement(Buttons, { plus: this.operation.bind(this, 1), minus: this.operation.bind(this, -1), numb: valueSpan }),
                 _react2.default.createElement(
                     "button",
                     { className: "btnReset", onClick: this.btnReset.bind(this) },

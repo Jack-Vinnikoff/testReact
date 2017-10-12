@@ -46,8 +46,8 @@ class App extends React.Component{
         let valueSpan = this.state.val;
         return (
             <div className="box">
-                <Number numb={this.state.val}/>
-                <Buttons plus={this.operation.bind(this,1)} minus={this.operation.bind(this,-1)} numb={this.state.val}   />
+                <Number numb={valueSpan}/>
+                <Buttons plus={this.operation.bind(this,1)} minus={this.operation.bind(this,-1)} numb={valueSpan}   />
 
                 <button className="btnReset" onClick={this.btnReset.bind(this)}>Reset</button>
                 <p className={valueSpan==0?'warn':'none'}>Меньше никак нельзя, прости</p>
