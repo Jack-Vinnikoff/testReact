@@ -1,34 +1,20 @@
-/**
- * Created by Demon on 22.08.2017.
- */
-var config = {
-    entry: './main',
-
-
+//var webpack = require('webpack');
+module.exports = {
+    entry: './src/main.js',
     output: {
-
-        path:__dirname + "/src",
-        filename: 'index.js',
+        filename: 'bundle.js',
+        path:__dirname + "/www/js",
     },
-
-    devServer: {
-        inline: true,
-        port: 8080
-    },
-
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.(jsx|js)?$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-
-                query: {
-                    presets: ['es2015', 'react']
-                }
+                exclude: [/node_modules/],
+                use: [{
+                    loader: 'babel-loader',
+                    options:{presets: ['es2015','react']}
+                }]
             }
         ]
     }
 }
-
-module.exports = config;
