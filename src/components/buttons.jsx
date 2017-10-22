@@ -12,6 +12,6 @@ class Buttons extends React.Component {
         )
     }
 }
-
+console.log(23);
 
 export default Buttons;
