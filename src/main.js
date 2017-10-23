@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Buttons from './components/buttons.jsx'
 import Number from './components/number.jsx'
+import BtnReset from './components/btn_reset.jsx'
 
 
 class App extends React.Component{
@@ -26,7 +27,7 @@ class App extends React.Component{
              <Number numb={valueSpan}/>
              <Buttons plus={this.operation.bind(this,1)} minus={this.operation.bind(this,-1)} numb={valueSpan}   />
 
-             <button className="btnReset" onClick={this.btnReset.bind(this)}>Reset</button>
+             <BtnReset reset={this.btnReset.bind(this)}/>
              <p className={valueSpan==0?'warn':'none'}>Меньше никак нельзя, прости</p>
 
             </div>
