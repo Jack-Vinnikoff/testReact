@@ -31,7 +31,9 @@ class Child extends React.Component {
                 />
 
                 <BtnReset
-                    reset={() =>{this.props.reset(this.props.id)}}
+                    // reset={() =>{this.props.reset(this.props.id)}}
+                    reset={this.props.reset}
+                    id={this.props.id}
                 />
                 <Mode
                     modeOnOff={()=>{this.props.modeOnOff(this.props.id)}}
