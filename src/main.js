@@ -168,8 +168,6 @@ class App extends React.Component{
                         mode={item.mode}
                     />
                 })}
-
-
             </div>
         );
     };
