@@ -1,89 +1,176 @@
-.parent{
-  #root {
-    width:100%;
-    height:100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: auto;
+
+.parent {
+  width: 100%;
+  .root {
     .box {
+      float: left;
       width: 250px;
-      height: 250px;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
+      height: 200px;
+      margin-right: 10px;
+      margin-bottom: 20px;
       border: 1px solid black;
-      .number {
-        position: absolute;
-        width:80px;
-        margin-left: 80px;
-        margin-top: 90px;
-        color:green;
+      border-radius: 20px;
+      background-color: #cbd0d8;
+      border: 1px solid black;
+      text-align: center;
+    }
+    .deleteChild {
+      position: absolute;
+      margin-top: 0px;
+      border: 1px solid black;
+      margin-left: 200px;
+      .deleteChild-btn {
+        fonst-size: 80px;
+        background-color: darkred;
+        color: white;
+      }
+    }
+    .textBoss {
+      background-color: brown;
+      text-align: center;
+      color: white;
+    }
+    .number {
+      position: absolute;
+      margin-top: 30px;
+      border: 1px solid black;
+      .coloRed {
+        color: red;
         font-size: 50px;
-        text-align:center;
-        .coloRed {
-          color:red;
+      }
+    }
+    .reset {
+
+      border: 1px solid black;
+      margin-top: 78px;
+      margin-left: 87px;
+      .btnReset {
+        width: 75px;
+        background-color: brown;
+        color: white;
+        cursor: pointer;
+        border: none;
+        font-size: 20px;
+        &:hover {
+          background-color: darkgreen;
+        }
+        &:active, &:focus {
+          outline: none;
         }
       }
-      .btn-plus {
+    }
+    .btn {
+      position: absolute;
+      margin-left: 90px;
+
+      .btn-minus {
         cursor: pointer;
         width: 30px;
         position: absolute;
-        margin-left: 180px;
-        margin-top:100px;
-        font-size:25px;
-        background-color: forestgreen;
-        color:white;
-        text-decoration: none;
+        font-size: 25px;
+        color: red;
+        background-color: transparent;
+        border: none;
+        &:hover {
+          background-color: red;
+          color: white;
+          border-radius: 30px;
+        }
+        &:active, &:focus {
+          outline: none;
+        }
       }
-      .btn-minus {
-        cursor: pointer;
-        width:30px;
+      .btn-plus {
         position: absolute;
-        margin-left:30px;
-        margin-top: 100px;
-        font-size:25px;
-        color:white;
-        background-color: red;
-      }
-      .warn {
-        font-size: 15px;
-        text-align: center;
-        padding-bottom: 10px;
-        color:red;
-      }
-      .block {
-        background-color: darkgrey;
-        cursor: default;
-        width:30px;
-        position: absolute;
-        margin-left:30px;
-        margin-top: 100px;
-        font-size:25px;
-        color:grey;
-        opacity: 0.5;
-        -ms-transform: scale(1,0.9);
-        -webkit-transform: scale(1,0.9);
-        -o-transform: scale(1,0.9);
-        -moz-transform: scale(1,0.9);
-        transform: scale(1,0.9);
-      }
-      .btnReset {
-        margin-top: 170px;
-        margin-left: 75px;
-        width:100px;
-        background-color: forestgreen;
-        color:white;
+        margin-left: 35px;
         cursor: pointer;
-        
+        width: 30px;
+        font-size: 25px;
+        background-color: transparent;
+        color: green;
+        border: none;
+        &:hover {
+          background-color: forestgreen;
+          color: white;
+          border-radius: 30px;
+        }
+        &:active, &:focus {
+          outline: none;
+        }
       }
 
     }
+    .addedChild {
+      position: absolute;
+      margin-left: 70px;
+      margin-top: 10px;
+
+      display: inline-block;
+      &:hover {
+        background-color: forestgreen;
+        border-radius: 100px;
+      }
+      .addedChild-btn {
+        color: forestgreen;
+        font-size: 40px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        &:active, &:focus {
+          outline: none;
+        }
+        &:hover {
+          color: white;
+        }
+      }
+
+    }
+    .mode{
+      position: inherit;
+      margin-top: 25px;
+      border: 1px solid black;
+      display: inline-block;
+      background-color: forestgreen;
+      .mode-btn-on{
+        width: 50px;
+        color:white;
+        border: none;
+        background-color: green;
+        cursor: pointer;
+      }
+      .mode-btn-off {
+        width: 50px;
+        color:white;
+        border: none;
+        background-color: red;
+        cursor: pointer;
+      }
+    }
+
+    //.box {
+    //  position: static;
+    //  border: 1px solid black;
+    //
+    //
+    //
+    //}
+    //
+
   }
 }
+
+
+
+
+
+    .warn {
+      font-size: 15px;
+      text-align: center;
+      padding-bottom: 10px;
+      color:red;
+    }
+
+
 .none {
   display: none !important;
 }
