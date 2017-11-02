@@ -7,27 +7,20 @@ import Parent from './components/parent.jsx';
 class App extends React.Component{
     constructor(props){
         super(props)
-        this.hello = alert('hello2');
-
         this.state ={
             parent:[{id:1,value:3}],
             child:[{id:1,value:3,mode:true},{id:2,value:1,mode:true},{id:3,value:11,mode:true},{id:4,value:2,mode:true},
                     {id:5,value:12,mode:true}],
-
         }
-        //this.test = this.writeToLocalStorage();
-
     }
-
-    // writeToLocalStorage (){
-    //     const childLength = this.state.child.length;
-    //     if(childLength > 0){
-    //         alert(23);
-    //         let serialObj = JSON.stringify(this.state.child)
-    //         localStorage.setItem('test5',serialObj);
-    //
-    //     }
-    // }
+    componentDidMount () {
+        const returnObjChild = JSON.parse(localStorage.getItem("child"))
+        const returnObjParent = JSON.parse(localStorage.getItem("parent"))
+        const child = this.state.child;
+        const parent = this.state.parent;
+        //console.log(returnobj);
+        this.setState({child:returnObjChild ||child, parent:returnObjParent || parent});
+    }
 
     operation(oper) {
         const parent = this.state.parent;
@@ -122,7 +115,13 @@ class App extends React.Component{
         this.setState({child:newChild});
         console.log(value.value);
     }
+    componentDidUpdate () {
+        let serialObjChild = JSON.stringify(this.state.child);
+        let serialObjParent = JSON.stringify(this.state.parent);
+        localStorage.setItem('child',serialObjChild);
+        localStorage.setItem('parent',serialObjParent);
 
+    }
 
     render(){
         const valueParent = this.state.parent[0].value;
