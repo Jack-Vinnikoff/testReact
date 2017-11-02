@@ -18,7 +18,6 @@ class App extends React.Component{
         const returnObjParent = JSON.parse(localStorage.getItem("parent"))
         const child = this.state.child;
         const parent = this.state.parent;
-        //console.log(returnobj);
         this.setState({child:returnObjChild ||child, parent:returnObjParent || parent});
     }
 
