@@ -13,6 +13,7 @@ class App extends React.Component{
                     {id:5,value:12,mode:true}],
         }
     }
+
     componentDidMount () {
         const returnObjChild = JSON.parse(localStorage.getItem("child"))
         const returnObjParent = JSON.parse(localStorage.getItem("parent"))
