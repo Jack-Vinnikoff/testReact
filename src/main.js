@@ -14,6 +14,7 @@ class App extends React.Component{
         }
     }
 
+    // Метод читает данные из localStorage
     componentDidMount () {
         const returnObjChild = JSON.parse(localStorage.getItem("child"))
         const returnObjParent = JSON.parse(localStorage.getItem("parent"))
@@ -22,6 +23,9 @@ class App extends React.Component{
         this.setState({child:returnObjChild ||child, parent:returnObjParent || parent});
     }
 
+    // Метод изменяет данные родителя (parent) и наследников (child)
+    // в этом методе есть проверка на ключ "mode" если в данном ключе значения "true" то он изменяет все данные у всех компонентов
+    // если значение "mode=false" то метод изменяет все компоненты кроме того у которого значения "mode=false"
     operation(oper) {
         const parent = this.state.parent;
         const child = this.state.child;
@@ -38,6 +42,9 @@ class App extends React.Component{
         this.setState({child:childVal, parent:parentVal});
 
     }
+
+    //Метод который сбрасывает у всех компонентов значение до "1", кроме тех у которых ключ "mode=false"
+
     btnResetParent() {
         const parent = this.state.parent;
         const child = this.state.child;
@@ -53,6 +60,9 @@ class App extends React.Component{
         this.setState({child:childVal, parent:parentVal});
 
     }
+
+   // Здесь изменяются данные у компонентов(child) по отдельности, внезависимости от родителя (parent)
+    // если у компонента значение "mode=true"
     operationChild(oper,idN){
         const child = this.state.child;
         const childVal = child.map((item,i) => {
@@ -64,6 +74,9 @@ class App extends React.Component{
         })
         this.setState({child:childVal});
     }
+
+    // Сбрасывает числовое значние у компонента (child) до 1, если у компонента значние "mode=true"
+
     btnResetChild(idN) {
         const child = this.state.child;
         const childVal = child.map((item,i) =>{
@@ -75,6 +88,7 @@ class App extends React.Component{
         this.setState({child:childVal});
     }
 
+    // Добавление нового "ребенка" компонента (child)
     addedChild () {
         const child = this.state.child;
         let newChild = child.concat();
@@ -90,6 +104,7 @@ class App extends React.Component{
 
     }
 
+    // Удаление "ребенка" компонента (child)
     deleteChild (idN) {
         const child = this.state.child;
         const newChild =[];
@@ -102,6 +117,8 @@ class App extends React.Component{
         this.setState({child:newChild});
 
     }
+
+    //Метод который с помощью кнопки выключает "ребенка" и у него данные не изменяются, и не сбрасываются
     modeOnOff(idN){
         const value=document.querySelector('.mode-btn-on');
         const child=this.state.child;
@@ -115,6 +132,8 @@ class App extends React.Component{
         this.setState({child:newChild});
         console.log(value.value);
     }
+
+    //Записываем наш state в localStorage
     componentDidUpdate () {
         let serialObjChild = JSON.stringify(this.state.child);
         let serialObjParent = JSON.stringify(this.state.parent);
