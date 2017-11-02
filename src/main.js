@@ -10,7 +10,7 @@ class App extends React.Component{
         this.state ={
             parent:[{id:1,value:3}],
             child:[{id:1,value:3,mode:true},{id:2,value:1,mode:true},{id:3,value:11,mode:true},{id:4,value:2,mode:true},
-                    {id:5,value:12,mode:true}],
+                    {id:5,value:12,mode:true}, {id:78,value:12,mode:true}, {id:888,value:12,mode:true} ,{id:88,value:12,mode:true}],
         }
     }
 
@@ -106,15 +106,17 @@ class App extends React.Component{
 
     // Удаление "ребенка" компонента (child)
     deleteChild (idN) {
-        const child = this.state.child;
-        const newChild =[];
-        for(let i=0; i<child.length; i++){
-            if(child[i].id == idN){
-                continue;
-            }
-            newChild.push(child[i]);
-        }
-        this.setState({child:newChild});
+
+        // const child = this.state.child;
+        // const newChild =[];
+        // for(let i=0; i<child.length; i++){
+        //     if(child[i].id == idN){
+        //         continue;
+        //     }
+        //     newChild.push(child[i]);
+        // }
+        // this.setState({child:newChild});
+        this.setState({child:this.state.child.filter(ch=> ch.id != idN)});
 
     }
 
