@@ -79,8 +79,8 @@ class Test extends React.Component {
     btnResetChild(idN) {
         const child = this.state.child;
         const childVal = child.map((item,i) =>{
-            if(item.id == idN) {
-                return {id : item.id, value : 1, mode : true}
+            if(item.id == idN && item.mode == true) {
+                return {id : item.id, value : 1, mode : item.mode}
             }
             return {id : item.id, value : item.value, mode : item.mode}
         })
